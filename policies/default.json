@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "mode": "simulation",
+  "maxOrderUsd": 500,
+  "maxPositionPct": 10,
+  "maxSectorPct": 25,
+  "maxDailyLossPct": 2,
+  "allowedSymbols": ["NVDA", "MSFT", "AAPL", "AMD", "GOOGL"],
+  "requireHumanApproval": true,
+  "brokerExecutionEnabled": false
+}
