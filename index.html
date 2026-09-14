@@ -3,152 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="The Black Ledger is a dark-fantasy safety console for agentic trading workflows." />
-    <meta name="theme-color" content="#09090d" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2309090d'/%3E%3Cpath d='M16 16h32v35H16z' fill='%231b1820' stroke='%23e7a950' stroke-width='3'/%3E%3Cpath d='M25 23h14M25 31h14M25 39h9' stroke='%23f2e8d5' stroke-width='3'/%3E%3C/svg%3E" />
+    <meta name="description" content="The Black Ledger is an open-source control layer for agentic trading workflows." />
+    <meta name="theme-color" content="#0b0b0b" />
     <title>The Black Ledger</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
-    <header class="topbar">
+    <div class="page-noise" aria-hidden="true"></div>
+    <header class="masthead shell">
       <a class="brand" href="#top" aria-label="The Black Ledger home">
-        <span class="brand-mark">B</span>
-        <span>
-          <strong>The Black Ledger</strong>
-          <small>Agentic risk console</small>
-        </span>
+        <svg class="brand-seal" viewBox="0 0 40 48" aria-hidden="true">
+          <path d="M3 4h34v24c0 8-7 13-17 17C10 41 3 36 3 28V4Z" />
+          <path d="M20 10v26M11 18h18M14 26h12" />
+        </svg>
+        <span><strong>The Black Ledger</strong><small>Agent control layer</small></span>
       </a>
-      <div class="mode"><span class="mode-dot"></span> Simulation only</div>
+      <div class="masthead-meta"><span class="status-light"></span><span>Simulation</span><span class="slash">/</span><span>No broker attached</span></div>
     </header>
 
     <main id="top">
       <section class="hero shell">
         <div class="hero-copy">
-          <p class="eyebrow">Chapter 01 / The market watch</p>
-          <h1>Let the oracle find a signal.<br /><em>Let the warden decide</em> if it survives.</h1>
-          <p class="lede">A visual trust layer for agentic trading. Every proposal earns an evidence trail, faces a council, and passes deterministic rules before a human can approve it.</p>
+          <p class="kicker"><span>Open source</span> Risk control for trading agents</p>
+          <h1>No agent touches capital <em>without a verdict.</em></h1>
+          <p class="lede">The Black Ledger sits between an AI-generated trade idea and execution. It records the evidence, applies hard limits, and stops at a human approval gate.</p>
           <div class="hero-actions">
-            <button class="primary-button" id="run-ritual">Run the council <span aria-hidden="true">&#8594;</span></button>
-            <a class="text-button" href="#ledger">Read the ledger</a>
+            <button class="primary-button" id="run-ritual">Run a simulated review</button>
+            <a class="source-link" href="https://github.com/tsukiema1/the-black-ledger" target="_blank" rel="noreferrer">View source <span aria-hidden="true">↗</span></a>
           </div>
+          <p class="hero-footnote">A working front-end demo. It cannot place orders.</p>
         </div>
-        <aside class="sigil-card" aria-label="Risk sigil: guarded simulation">
-          <div class="sigil-orbit orbit-one"></div>
-          <div class="sigil-orbit orbit-two"></div>
-          <div class="sigil"><span>Guarded</span><strong>0</strong><small>live orders</small></div>
-          <p>Capital is not connected.<br />The gate cannot execute.</p>
+
+        <aside class="execution-map" aria-label="Execution path">
+          <div class="map-caption"><span>Execution path</span><span>Case 0347</span></div>
+          <div class="path-list">
+            <div class="path-item complete"><span class="path-index">01</span><div><strong>Proposal</strong><small>NVDA · $480.00</small></div><b>Filed</b></div>
+            <div class="path-item" data-step="evidence"><span class="path-index">02</span><div><strong>Evidence</strong><small>3 timestamped sources</small></div><b>Waiting</b></div>
+            <div class="path-item" data-step="policy"><span class="path-index">03</span><div><strong>Policy</strong><small>6 deterministic checks</small></div><b>Waiting</b></div>
+            <div class="path-item locked"><span class="path-index">04</span><div><strong>Human approval</strong><small>Required by policy</small></div><b>Locked</b></div>
+          </div>
+          <div class="gate-mark"><span>Execution gate</span><strong>SEALED</strong><small>Zero live orders</small></div>
         </aside>
       </section>
 
-      <section class="shell status-row" aria-label="System status">
-        <div><span>Realm value</span><strong>$24,820.16</strong><small>Simulated portfolio</small></div>
-        <div><span>Warden policy</span><strong>6 / 6</strong><small>Rules enforced</small></div>
-        <div><span>Corruption</span><strong class="green">0.8%</strong><small>Below 5% threshold</small></div>
-        <div><span>Council</span><strong>3 voices</strong><small>Independent opinions</small></div>
+      <section class="metrics shell" aria-label="System status">
+        <div><span>Portfolio</span><strong>$24,820.16</strong></div><div><span>Proposed risk</span><strong>1.93%</strong></div><div><span>Daily drawdown</span><strong>0.80%</strong></div><div><span>Hard limits</span><strong>6 active</strong></div>
       </section>
 
-      <section class="shell section-grid">
-        <div class="proposal-panel">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">The oracle speaks</p>
-              <h2>Proposal #0347</h2>
+      <section class="case shell">
+        <div class="case-heading"><div><p class="section-label">Active case / 0347</p><h2>NVDA · Long proposal</h2></div><span class="badge warning" id="proposal-status">Review not started</span></div>
+        <div class="case-layout">
+          <article class="brief">
+            <div class="brief-price"><div><span>Reference price</span><strong>$184.12</strong></div><div><span>Order size</span><strong>$480.00</strong></div><div><span>Invalidation</span><strong>$171.00</strong></div></div>
+            <div class="thesis-block"><span>Machine thesis</span><p>Earnings revisions and data-center demand support a bounded momentum position. The order remains below portfolio and sector concentration limits.</p></div>
+            <div class="evidence-list">
+              <div class="evidence-heading"><span>Evidence packet</span><span>3 / 3 available</span></div>
+              <ol><li><span>01</span><strong>Earnings call transcript</strong><small>42 min</small></li><li><span>02</span><strong>Analyst estimate revisions</strong><small>1 hr</small></li><li><span>03</span><strong>Market breadth snapshot</strong><small>12 min</small></li></ol>
             </div>
-            <span class="badge amber" id="proposal-status">Awaiting council</span>
-          </div>
-          <div class="proposal-topline">
-            <div class="ticker">NVDA <span>Nasdaq</span></div>
-            <div class="proposal-price">$184.12 <span class="positive">+2.41%</span></div>
-          </div>
-          <p class="thesis">A bounded momentum thesis: earnings revisions and data-center demand remain constructive, while the position stays below the realm's concentration oath.</p>
-          <div class="facts">
-            <div><span>Proposed size</span><strong>$480.00</strong></div>
-            <div><span>Portfolio weight</span><strong>1.93%</strong></div>
-            <div><span>Invalidation</span><strong>Close below $171</strong></div>
-          </div>
-          <div class="source-list">
-            <p>Oracle evidence <span>3 sources, timestamped</span></p>
-            <ul>
-              <li><span class="rune">I</span> Earnings call transcript <small>42m ago</small></li>
-              <li><span class="rune">II</span> Analyst estimate revisions <small>1h ago</small></li>
-              <li><span class="rune">III</span> Market breadth check <small>12m ago</small></li>
-            </ul>
-          </div>
+          </article>
+          <aside class="review-stack">
+            <div class="review-heading"><span>Review stack</span><strong id="council-state">Idle</strong></div>
+            <div class="voice-list" id="voice-list">
+              <article class="voice" data-voice="oracle"><span class="monogram">E</span><div><strong>Evidence check</strong><p>Freshness and provenance</p></div><span class="voice-result">Pending</span></article>
+              <article class="voice" data-voice="scribe"><span class="monogram">T</span><div><strong>Thesis check</strong><p>Claim and invalidation</p></div><span class="voice-result">Pending</span></article>
+              <article class="voice" data-voice="warden"><span class="monogram">P</span><div><strong>Policy check</strong><p>Hard deterministic limits</p></div><span class="voice-result">Pending</span></article>
+            </div>
+            <p class="review-note" id="council-note">This proposal has not been reviewed. The execution gate remains sealed.</p>
+          </aside>
         </div>
-
-        <aside class="council-panel">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">The council</p>
-              <h2>Three voices</h2>
-            </div>
-            <span class="council-state" id="council-state">Dormant</span>
-          </div>
-          <div class="voice-list" id="voice-list">
-            <article class="voice" data-voice="oracle">
-              <span class="portrait oracle">O</span>
-              <div><strong>The Oracle</strong><p>Signal, context, evidence</p></div>
-              <span class="voice-result">Pending</span>
-            </article>
-            <article class="voice" data-voice="scribe">
-              <span class="portrait scribe">S</span>
-              <div><strong>The Scribe</strong><p>Thesis and memory integrity</p></div>
-              <span class="voice-result">Pending</span>
-            </article>
-            <article class="voice" data-voice="warden">
-              <span class="portrait warden">W</span>
-              <div><strong>The Warden</strong><p>Rules with no room for charm</p></div>
-              <span class="voice-result">Pending</span>
-            </article>
-          </div>
-          <div class="council-note" id="council-note">The council has not reviewed this proposal. No order can be created from this demo.</div>
-        </aside>
       </section>
 
-      <section class="shell warden-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">The warden's oath</p>
-            <h2>Policy must pass before prose matters.</h2>
-          </div>
-          <span class="badge muted" id="policy-status">Not evaluated</span>
-        </div>
+      <section class="policy shell">
+        <div class="section-heading"><div><p class="section-label">Deterministic policy</p><h2>Language models do not set the limits.</h2></div><span class="badge" id="policy-status">Not evaluated</span></div>
         <div class="rule-grid" id="rule-grid">
-          <article class="rule" data-rule="orderCap"><span class="rule-icon">01</span><div><strong>Order cap</strong><p>Never exceed $500 per proposal.</p></div><span class="rule-result">...</span></article>
-          <article class="rule" data-rule="positionCap"><span class="rule-icon">02</span><div><strong>Position cap</strong><p>Keep any holding below 10%.</p></div><span class="rule-result">...</span></article>
-          <article class="rule" data-rule="sectorCap"><span class="rule-icon">03</span><div><strong>Sector cap</strong><p>Do not cross 25% in one sector.</p></div><span class="rule-result">...</span></article>
-          <article class="rule" data-rule="dailyLoss"><span class="rule-icon">04</span><div><strong>Daily loss oath</strong><p>Halt after 2% of realm value.</p></div><span class="rule-result">...</span></article>
-          <article class="rule" data-rule="allowlist"><span class="rule-icon">05</span><div><strong>Allowed symbols</strong><p>Only vetted names enter the realm.</p></div><span class="rule-result">...</span></article>
-          <article class="rule" data-rule="humanApproval"><span class="rule-icon">06</span><div><strong>Human seal</strong><p>Execution always needs a human.</p></div><span class="rule-result">...</span></article>
+          <article class="rule" data-rule="orderCap"><span>01</span><div><strong>Order value</strong><p>$480 / $500 maximum</p></div><b class="rule-result">Pending</b></article>
+          <article class="rule" data-rule="positionCap"><span>02</span><div><strong>Position weight</strong><p>1.93% / 10% maximum</p></div><b class="rule-result">Pending</b></article>
+          <article class="rule" data-rule="sectorCap"><span>03</span><div><strong>Sector exposure</strong><p>19.70% / 25% maximum</p></div><b class="rule-result">Pending</b></article>
+          <article class="rule" data-rule="dailyLoss"><span>04</span><div><strong>Daily drawdown</strong><p>0.80% / 2% halt</p></div><b class="rule-result">Pending</b></article>
+          <article class="rule" data-rule="allowlist"><span>05</span><div><strong>Symbol allowlist</strong><p>NVDA is permitted</p></div><b class="rule-result">Pending</b></article>
+          <article class="rule" data-rule="humanApproval"><span>06</span><div><strong>Human approval</strong><p>Required before execution</p></div><b class="rule-result">Pending</b></article>
         </div>
       </section>
 
-      <section class="shell ledger-section" id="ledger">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">The black ledger</p>
-            <h2>Nothing disappears.</h2>
-          </div>
-          <span class="ledger-count" id="ledger-count">03 entries</span>
-        </div>
-        <div class="ledger-table-wrap">
-          <table>
-            <thead><tr><th>Time</th><th>Event</th><th>Reason</th><th>State</th></tr></thead>
-            <tbody id="ledger-body">
-              <tr><td>14:03:12</td><td>Proposal formed</td><td>Evidence packet sealed</td><td><span class="table-state neutral">Recorded</span></td></tr>
-              <tr><td>14:03:13</td><td>Policy loaded</td><td>Six hard limits armed</td><td><span class="table-state neutral">Recorded</span></td></tr>
-              <tr><td>14:03:13</td><td>Execution channel</td><td>No broker connector exists</td><td><span class="table-state safe">Locked</span></td></tr>
-            </tbody>
-          </table>
-        </div>
+      <section class="ledger shell" id="ledger">
+        <div class="section-heading"><div><p class="section-label">Append-only record</p><h2>Decision ledger</h2></div><span class="ledger-count" id="ledger-count">03 entries</span></div>
+        <div class="ledger-table-wrap"><table><thead><tr><th>Time</th><th>Event</th><th>Reason</th><th>State</th></tr></thead><tbody id="ledger-body"><tr><td>14:03:12</td><td>Proposal filed</td><td>Evidence packet attached</td><td><span class="table-state neutral">Recorded</span></td></tr><tr><td>14:03:13</td><td>Policy loaded</td><td>Six limits active</td><td><span class="table-state neutral">Recorded</span></td></tr><tr><td>14:03:13</td><td>Execution gate</td><td>No broker connector</td><td><span class="table-state safe">Sealed</span></td></tr></tbody></table></div>
       </section>
     </main>
 
-    <footer class="shell footer">
-      <p>Built for inspection, simulation, and human judgement. Not investment advice.</p>
-      <a href="https://github.com/tsukiema1/the-black-ledger" target="_blank" rel="noreferrer">View source <span aria-hidden="true">&#8599;</span></a>
-    </footer>
+    <footer class="footer shell"><span>THE BLACK LEDGER · v0.1</span><p>Simulation software. Not investment advice.</p><a href="#top">Return to top ↑</a></footer>
     <script type="module" src="src/app.js"></script>
   </body>
 </html>

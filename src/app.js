@@ -29,6 +29,12 @@ function setVoice(name, result) {
   resultNode.classList.add("pass");
 }
 
+function setPathStep(name, result) {
+  const step = document.querySelector(`[data-step="${name}"]`);
+  step.classList.add("complete");
+  step.querySelector("b").textContent = result;
+}
+
 function renderRules(checks) {
   for (const check of checks) {
     const card = document.querySelector(`[data-rule="${check.id}"]`);
@@ -44,31 +50,33 @@ async function runCouncil() {
   if (hasRun) return;
   hasRun = true;
   button.disabled = true;
-  button.textContent = "Council is speaking...";
-  councilState.textContent = "In session";
-  appendLedger("Council summoned", "The proposal entered review", "Reviewing");
+  button.textContent = "Review in progress...";
+  councilState.textContent = "Running";
+  appendLedger("Review started", "Proposal entered the control path", "Reviewing");
 
   await sleep(380);
-  setVoice("oracle", "Signal found");
-  appendLedger("Oracle reviewed", "Evidence is fresh and complete", "Passed", "safe");
+  setVoice("oracle", "Sources valid");
+  setPathStep("evidence", "Passed");
+  appendLedger("Evidence checked", "Sources are fresh and complete", "Passed", "safe");
 
   await sleep(520);
-  setVoice("scribe", "Memory sealed");
-  appendLedger("Scribe reviewed", "Thesis includes an invalidation", "Passed", "safe");
+  setVoice("scribe", "Thesis bounded");
+  appendLedger("Thesis checked", "Claim includes an invalidation", "Passed", "safe");
 
   await sleep(620);
-  setVoice("warden", "Rules passed");
+  setVoice("warden", "Limits passed");
+  setPathStep("policy", "Passed");
   const checks = evaluateProposal(demoProposal, defaultPolicy);
   renderRules(checks);
   policyStatus.textContent = `${checks.filter((check) => check.passed).length} / ${checks.length} passed`;
   policyStatus.className = "badge safe";
-  appendLedger("Warden evaluated", "All deterministic policies passed", "Passed", "safe");
+  appendLedger("Policy evaluated", "All deterministic limits passed", "Passed", "safe");
 
-  proposalStatus.textContent = "Human seal required";
-  proposalStatus.className = "badge amber";
-  councilState.textContent = "Unanimous";
-  councilNote.textContent = "The council permits a human review. The demo remains sealed: no broker is connected and no order can be sent.";
-  button.textContent = "The realm remains sealed";
+  proposalStatus.textContent = "Human approval required";
+  proposalStatus.className = "badge warning";
+  councilState.textContent = "3 checks passed";
+  councilNote.textContent = "Automated review passed. Execution is still blocked until a human approves the proposal.";
+  button.textContent = "Execution remains sealed";
 }
 
 button.addEventListener("click", runCouncil);
